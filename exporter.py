@@ -37,7 +37,7 @@ class prometheusCollector():
     
     def calculation(self,data_0,data_1):
         data = data_1
-        port_length = len(data['ports'])-1
+        port_length = len(data['ports'])
         for number in range(0,port_length):
             data["ports"][number]["packetsReceived"] = data_1["ports"][number]["packetsReceived"] - data_0["ports"][number]["packetsReceived"]
             data["ports"][number]["packetsSent"] = data_1["ports"][number]["packetsSent"] - data_0["ports"][number]["packetsSent"]
@@ -66,7 +66,7 @@ class prometheusCollector():
             data_1 = device.get_statistic()["statistics"][0]
             data = self.calculation(data_0,data_1)
         
-            port_length = len(data['ports'])-1
+            port_length = len(data['ports'])
             for number in range(0,port_length):
                 self.metric['packetsReceived'].add_metric([data["device"],str(data["ports"][number]['port'])], data["ports"][number]["packetsReceived"])
                 self.metric['packetsSent'].add_metric([data["device"],str(data["ports"][number]['port'])], data["ports"][number]["packetsSent"])
@@ -74,7 +74,6 @@ class prometheusCollector():
                 self.metric['bytesSent'].add_metric([data["device"],str(data["ports"][number]['port'])], data["ports"][number]["bytesSent"])
 
         for metric in self.metric.values():
-            print (metric)
             yield metric
 
 if __name__ == "__main__":
