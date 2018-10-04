@@ -7,7 +7,6 @@ echo "Install Ansible"
 echo "============================================"
 sudo apt-get install -y pyhton3 python3-pip
 
-
 echo "Install requirement package"
 echo "============================================"
 sudo apt-get install -y wget git
@@ -41,7 +40,7 @@ source ~/.bashrc
 
 echo "Install python dashboard requirement"
 echo "============================================"
-sudo pip install -r /opt/onos-prometheus-exporter/requirement.txt
+sudo pip3 install -r /opt/onos-prometheus-exporter/requirement.txt
 
 echo "Running exporter program"
 echo "============================================"
