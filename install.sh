@@ -5,7 +5,7 @@ sudo apt-get -y update
 
 echo "Install Ansible"
 echo "============================================"
-sudo apt-get install -y pyhton3 python3-pip
+sudo apt-get install -y python3 python3-pip
 
 echo "Install requirement package"
 echo "============================================"
