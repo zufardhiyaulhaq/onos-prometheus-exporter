@@ -3,7 +3,7 @@ echo "Update the repository"
 echo "============================================"
 sudo apt-get -y update
 
-echo "Install Ansible"
+echo "Install Python"
 echo "============================================"
 sudo apt-get install -y python3 python3-pip
 
@@ -16,7 +16,7 @@ echo "============================================"
 git clone https://github.com/zufardhiyaulhaq/onos-prometheus-exporter.git
 sudo mv onos-prometheus-exporter/ /opt/
 
-echo "Creating Daemon for Dashboard"
+echo "Creating Daemon for Exporter"
 echo "============================================"
 sudo sh -c 'cat << EOF > /etc/systemd/system/onos-exporter.service
 [Unit]
